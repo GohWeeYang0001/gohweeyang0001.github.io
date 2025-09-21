@@ -636,7 +636,10 @@
     <!-- 顶部 -->
     <header>
         <div class="container nav">
-            <a class="brand" href="#"><img src="assets/品牌logo.png" alt="毛孩子Salon logo"><span>毛孩子Salon</span></a>
+            <a class="brand" href="#">
+                <!-- <img src="assets/品牌logo.png" alt="毛孩子Salon logo"> -->
+                <span>毛孩子Salon</span>
+            </a>
             <button class="menu-btn" aria-label="打开菜单" id="menuBtn">☰</button>
             <nav>
                 <ul id="menu">
@@ -759,10 +762,9 @@
                 .gallery {
                     display: grid;
                     grid-template-columns: repeat(4, 1fr);
-                    /* 一行 4 个 */
+                    /* 默认 4 个 */
                     gap: 12px;
                 }
-
 
                 .img-box {
                     position: relative;
@@ -796,6 +798,23 @@
                 /* 薄荷绿 After */
                 .after .tag {
                     background: #00b894;
+                }
+
+                /* 📱 手机端优化 */
+                @media (max-width: 600px) {
+                    .gallery {
+                        grid-template-columns: repeat(2, 1fr);
+                        /* 每行 2 个 */
+                    }
+
+                    .img-box .tag {
+                        font-size: 11px;
+                        /* 标签字体缩小 */
+                        padding: 1px 6px;
+                        /* 标签内边距缩小 */
+                        top: 6px;
+                        left: 6px;
+                    }
                 }
             </style>
 
@@ -835,7 +854,6 @@
             </div>
         </div>
     </section>
-
 
 
     <!-- 评价 -->
@@ -982,7 +1000,9 @@
     <footer>
         <div class="container foot">
             <div>
-                <div class="brand"><img src="assets/favicon.svg" alt="" aria-hidden="true"><span
+                <div class="brand">
+                    <!-- <img src="assets/favicon.svg" alt="" aria-hidden="true"> -->
+                    <span
                         style="color:#fff">毛孩子Salon</span></div>
                 <p style="margin-top:8px">让每一次洗护都舒心、安全、漂亮。</p>
             </div>
@@ -999,8 +1019,7 @@
                 <ul style="list-style:none;padding:0;margin:0;display:grid;gap:8px">
                     <li><a href="https://wa.me/60105057688" target="_blank" rel="noopener">WhatsApp：+60 10-505 7688</a>
                     </li>
-                    <li><a href="tel:13800000000">电话：138 0000 0000</a></li>
-                    <li>地址：广场路 88 号 B1-23</li>
+                    <li>地址: 14-21A, Jalan Haji Jaib, Lorong Perkasa, 84000 Muar, Johor, Malaysia</li>
                 </ul>
             </div>
         </div>
