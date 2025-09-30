@@ -305,7 +305,8 @@
         table.price {
             width: 100%;
             border-collapse: separate;
-            border-spacing: 0 10px
+            border-spacing: 0 10px;
+
         }
 
         .price thead th {
@@ -629,6 +630,111 @@
             color: #128C7E;
             text-decoration: underline
         }
+
+
+
+
+        /* 这边开始是价目表 */
+        /* ===== 仿图风格：两张卡片价目（无CTA） ===== */
+        .pricing-mimic {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        @media (max-width:880px) {
+            .pricing-mimic {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .pri-card {
+            position: relative;
+            background: #f7f2ec;
+            /* 柔和米杏底，接近示例卡片 */
+            border-radius: 26px;
+            padding: 28px 26px 22px;
+            box-shadow: 0 10px 26px rgba(0, 0, 0, .06);
+            border: 1px solid rgba(0, 0, 0, .04);
+            overflow: hidden;
+        }
+
+        /* 顶部柔和抽象形状（SVG容器） */
+        .pri-blob {
+            width: 84px;
+            height: 84px;
+            border-radius: 20px;
+            margin: 0 auto 6px;
+            display: grid;
+            place-items: center;
+            filter: drop-shadow(0 6px 10px rgba(0, 0, 0, .04));
+        }
+
+        .pri-blob svg {
+            width: 72px;
+            height: 72px;
+            opacity: .9;
+        }
+
+        /* 文字样式：模仿图片的居中排版与层次 */
+        .pri-title {
+            margin: 6px 0 12px;
+            text-align: center;
+            font-size: 28px;
+            font-weight: 900;
+            /* 粗体 */
+            letter-spacing: .3px;
+            color: #3b2d2a;
+        }
+
+        .pri-desc {
+            text-align: center;
+            color: #5e4f4a;
+            margin: 0 auto 14px;
+            max-width: 36ch;
+        }
+
+        /* 小节标题：有下划线（模仿“其中包括：”） */
+        .pri-sub {
+            text-align: center;
+            margin: 16px 0 10px;
+            font-weight: 800;
+            color: #4d403b;
+            text-decoration: underline;
+            text-underline-offset: 4px;
+        }
+
+        /* 列表：居中、圆点，行距接近示例 */
+        .pri-list {
+            margin: 0 auto 10px;
+            padding: 0;
+            list-style-position: inside;
+            text-align: center;
+            color: #4a3c37;
+            line-height: 1.9;
+        }
+
+        /* 行分隔 */
+        .pri-hr {
+            height: 1px;
+            background: rgba(0, 0, 0, .06);
+            margin: 14px auto;
+            width: 88%;
+            border-radius: 999px;
+        }
+
+        /* 底部“起价” */
+        .pri-foot {
+            margin-top: 6px;
+            text-align: center;
+            color: #6a5a55;
+            font-weight: 600;
+        }
+
+        /* 第二张卡片稍微偏冷一点，和示例左右对照感 */
+        .pri-card.alt {
+            background: #f5efe9;
+        }
     </style>
 </head>
 
@@ -643,12 +749,12 @@
             <button class="menu-btn" aria-label="打开菜单" id="menuBtn">☰</button>
             <nav>
                 <ul id="menu">
-                    <li><a href="#services">服务</a></li>
                     <li><a href="#pricing">价目</a></li>
                     <li><a href="#gallery">作品集</a></li>
-                    <li><a href="#reviews">评价</a></li>
-                    <li><a href="#contact">联系我们</a></li>
+                    <li><a href="#contact">服务地址</a></li>
                     <li><a href="#whatsapp">WhatsApp</a></li>
+                    <!-- <li><a href="#reviews">评价</a></li> -->
+
                 </ul>
             </nav>
         </div>
@@ -680,77 +786,70 @@
     </section>
 
     <!-- 服务 -->
-    <section class="section" id="services">
+    <section class="section" id="pricing">
         <div class="container">
             <h2>我们的服务</h2>
-            <p class="sub">按不同体型/毛发状况定制护理流程，透明步骤、标准时长。</p>
-            <div class="grid">
-                <div class="card">
-                    <div class="icon">🛁</div>
-                    <h3>基础洗护</h3>
-                    <p>温和洗护+吹干+梳理+清洁耳道与眼部+修爪与磨甲。</p>
-                </div>
-                <div class="card">
-                    <div class="icon">✂️</div>
-                    <h3>造型修剪</h3>
-                    <p>日常清爽、泰迪装、贵宾装、日系圆头等；根据脸型毛量设计。</p>
-                </div>
-                <div class="card">
-                    <div class="icon">🌿</div>
-                    <h3>皮毛护理 & SPA</h3>
-                    <p>深层蓬松、丝滑顺毛、药浴止痒、精油舒缓、足底护理。</p>
-                </div>
+            <p class="sub">以下为到店基础价；具体会按体型、毛量与结毛程度评估后确认。</p>
+
+            <div class="pricing-mimic">
+
+                <!-- 卡片 1：狗狗（爪印图形） -->
+                <article class="pri-card" aria-label="狗狗价目">
+                    <!-- 狗狗卡片：使用爪印图片 -->
+                    <div class="pri-blob" aria-hidden="true">
+                        <img src="assets/dog.png" alt="狗狗图标" width="96" height="96" />
+                    </div>
+
+
+                    <h3 class="pri-title">狗狗护理</h3>
+                    <p class="pri-desc">两种常用套餐，舒适低噪，适合大多数幼犬与小型犬。</p>
+
+                    <!-- 子项 1：洗护 -->
+                    <div class="pri-sub">基础洗护 (RM35)</div>
+                    <ul class="pri-list">
+                        <li>洗护与吹干</li>
+                        <li>梳理</li>
+                        <li>修足</li>
+                        <li>肛门腺</li>
+                    </ul>
+                    <div class="pri-foot"><strong>RM35</strong>（仅洗护）</div>
+
+                    <div class="pri-hr" aria-hidden="true"></div>
+
+                    <!-- 子项 2：洗护与造型 -->
+                    <div class="pri-sub">洗护与造型 (RM70 - RM100)</div>
+                    <ul class="pri-list">
+                        <li>洗护 + 吹干梳理</li>
+                        <li>修足、肛门腺</li>
+                        <li>造型修剪</li>
+                    </ul>
+                </article>
+
+                <!-- 卡片 2：猫咪（毛线球图形） -->
+                <article class="pri-card alt" aria-label="猫咪价目">
+                    <!-- 猫咪卡片：使用猫咪图片 -->
+                    <div class="pri-blob" aria-hidden="true">
+                        <img src="assets/cat.png" alt="猫咪图标" width="96" height="96" />
+                    </div>
+
+
+
+                    <h3 class="pri-title">猫咪护理</h3>
+                    <p class="pri-desc">仅提供温和的基础洗护流程，降低应激与噪音刺激。</p>
+
+                    <div class="pri-sub">基础洗护(RM50)</div>
+                    <ul class="pri-list">
+                        <li>洗护与吹干</li>
+                        <li>绒毛干燥</li>
+                        <li>修足、肛门腺</li>
+                    </ul>
+                </article>
+
             </div>
         </div>
     </section>
 
-    <!-- 价目 -->
-    <section class="section" id="pricing">
-        <div class="container">
-            <h2>价目表</h2>
-            <p class="sub">以下为参考价格，具体以体型/毛量/结毛程度为准。详情请 WhatsApp 咨询。</p>
-            <div class="card" role="region" aria-label="价目表">
-                <table class="price">
-                    <thead>
-                        <tr>
-                            <th>项目</th>
-                            <th>猫咪</th>
-                            <th>小型犬</th>
-                            <th>中型犬</th>
-                            <th>大型犬</th>
-                            <th>备注</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>基础洗护</td>
-                            <td>¥98</td>
-                            <td>¥118</td>
-                            <td>¥168</td>
-                            <td>¥228</td>
-                            <td><span class="tag" style="background:#e8fff1">首次85折</span></td>
-                        </tr>
-                        <tr>
-                            <td>洗护+造型</td>
-                            <td>¥168</td>
-                            <td>¥238</td>
-                            <td>¥328</td>
-                            <td>¥438</td>
-                            <td>含修足/肛门腺</td>
-                        </tr>
-                        <tr>
-                            <td>深度护理 / 药浴</td>
-                            <td>+¥60</td>
-                            <td>+¥80</td>
-                            <td>+¥120</td>
-                            <td>+¥160</td>
-                            <td>需提前沟通</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </section>
+
 
     <!-- 作品集 -->
     <section class="section" id="gallery">
@@ -855,23 +954,6 @@
         </div>
     </section>
 
-
-    <!-- 评价 -->
-    <section class="section" id="reviews">
-        <div class="container">
-            <h2>客人评价</h2>
-            <p class="sub">来自平台的真实反馈（示例）。</p>
-            <div class="reviews">
-                <blockquote>洗完香香软软的，造型师很会看脸型设计～<div class="who"><span class="avatar"></span>小栀（柯基主理）</div>
-                </blockquote>
-                <blockquote>店里非常干净，没有异味。耐心加分！<div class="who"><span class="avatar"></span>MuMu（英短）</div>
-                </blockquote>
-                <blockquote>价目透明，沟通顺畅，固定来这家。<div class="who"><span class="avatar"></span>豆包麻麻</div>
-                </blockquote>
-            </div>
-        </div>
-    </section>
-
     <!-- WhatsApp 联系 + 二维码（美化版） -->
     <section class="section" id="whatsapp">
         <div class="container">
@@ -888,6 +970,8 @@
                             <li>营业时间：周一至周日 10:00–20:00</li>
                             <li>通常 5 分钟内回复</li>
                             <li>也可发送宠物照片，帮你评估护理方案</li>
+                            <li> 建议优先 WhatsApp 咨询</li>
+                            
                         </ul>
 
                         <br>
@@ -913,7 +997,6 @@
 
         </div>
     </section>
-
 
     <!-- 服务地址 / 地图（精简版） -->
     <section class="section" id="contact">
@@ -973,7 +1056,21 @@
         </div>
     </section>
 
-
+    <!-- 评价 -->
+    <!-- <section class="section" id="reviews">
+        <div class="container">
+            <h2>客人评价</h2>
+            <p class="sub">来自平台的真实反馈（示例）。</p>
+            <div class="reviews">
+                <blockquote>洗完香香软软的，造型师很会看脸型设计～<div class="who"><span class="avatar"></span>小栀（柯基主理）</div>
+                </blockquote>
+                <blockquote>店里非常干净，没有异味。耐心加分！<div class="who"><span class="avatar"></span>MuMu（英短）</div>
+                </blockquote>
+                <blockquote>价目透明，沟通顺畅，固定来这家。<div class="who"><span class="avatar"></span>豆包麻麻</div>
+                </blockquote>
+            </div>
+        </div>
+    </section> -->
 
 
 
@@ -1002,8 +1099,8 @@
             <div>
                 <div class="brand">
                     <!-- <img src="assets/favicon.svg" alt="" aria-hidden="true"> -->
-                    <span
-                        style="color:#fff">毛孩子Salon</span></div>
+                    <span style="color:#fff">毛孩子Salon</span>
+                </div>
                 <p style="margin-top:8px">让每一次洗护都舒心、安全、漂亮。</p>
             </div>
             <div>
