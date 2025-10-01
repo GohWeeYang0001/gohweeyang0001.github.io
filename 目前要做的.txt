@@ -1,0 +1,12 @@
+1）由于google search的时候，会有title， descrition，参考图片，还有小图标，所以这个是之后要处理的
+    <title>Pet｜宠物美容与洗护</title>
+    <meta name="description" content="毛孩子Salon：专业宠物美容、洗护、SPA、梳理与造型。安心、洁净、科学护理，让爱宠更舒心。通过 WhatsApp 联系我们。" />
+    <meta property="og:title" content="毛孩子Salon｜宠物美容与洗护" />
+    <meta property="og:description" content="专业宠物美容、洗护、SPA、梳理与造型。通过 WhatsApp 联系我们。" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="assets/og-cover.jpg" />
+    <link rel="icon" href="assets/favicon.svg" />
+
+
+
+2）
