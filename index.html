@@ -745,6 +745,33 @@
         .pri-card.alt {
             background: #f5efe9;
         }
+
+
+
+
+        /* 默认隐藏（桌面） */
+        .lang-mobile {
+            display: none;
+        }
+
+        /* 手机显示 */
+        @media (max-width:880px) {
+            .lang-mobile {
+                display: inline-flex;
+                margin-left: auto;
+                padding: 10px 16px;
+                background: #25D366;
+                color: #fff !important;
+                border-radius: 22px;
+                font-weight: 700;
+            }
+
+            /* 手机版隐藏整个菜单与按钮 */
+            nav ul,
+            .menu-btn {
+                display: none !important;
+            }
+        }
     </style>
 
     <!-- SEO优化设置 -->
@@ -837,6 +864,7 @@
 
                 </ul>
             </nav>
+            <a href="en/" class="lang-mobile">EN</a>
 
         </div>
     </header>
